@@ -40,7 +40,7 @@ const vlidateDate = (req, res, next) => {
 const GenerateResult = (req, res, next) => {
   if (req.paramType == "UNIX") {
     const UTC = new Date(Number(req.params.date)).toGMTString();
-    req.resultDate = { unix: req.params.date, utc: UTC };
+    req.resultDate = { unix: Number(req.params.date), utc: UTC };
   }
   else if (req.paramType == "UTC") {
     const UNIX = new Date(req.params.date).getTime();
